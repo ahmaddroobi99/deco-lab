@@ -2,32 +2,37 @@
 
 ## Path
 
-1. Push `main` to GitHub
-2. GitHub Actions runs typecheck, test, lint, build
-3. Vercel builds `npm run build` (Nitro vercel preset)
-4. Production URL serves SSR + static assets
+1. Push `main` to GitHub (CI: typecheck, test, lint, build)
+2. Netlify production: `npm run build` with `NETLIFY=true` → Nitro `netlify` preset
+3. URL: https://deco-lab.netlify.app
+
+`netlify.toml` sets `publish = "dist"`, Node 22, `VITE_AUTH_ENABLED=false`.
 
 ## Env
 
-None required. Do not set `VITE_AUTH_ENABLED=true` unless you intend to
-wire accounts (not used by the lab).
+| Key | Value |
+| --- | --- |
+| `VITE_AUTH_ENABLED` | `false` |
+| `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` | `1` |
+
+Do not set `VITE_AUTH_ENABLED=true`.
 
 ## Rollback
 
-Vercel dashboard → previous production deployment → Promote.
+Netlify dashboard → Deploys → previous production deploy → Publish.
 
-## Blocker: Vercel billing (2026-09-01)
+## Vercel (not live)
 
-Project creation on the Pro team is suspended (`resource_creation_blocked`,
-HTTP 402). Reactivate at
+Project creation on the Pro team is suspended (`resource_creation_blocked`, HTTP 402). Reactivate at
 https://vercel.com/teams/ahmads-projects-76bdf265/settings/billing
-then link this repository. Do not overwrite the existing `time7` project.
+then link this repository as a **new** project. Do not overwrite `time7`.
 
 ## Common failures
 
 | Symptom | Cause |
 | --- | --- |
-| Blank page, JS MIME text/html | Asset 404 / wrong base path |
+| Blank page, JS MIME text/html | Asset 404 / wrong publish dir (must be `dist`) |
 | Build OOM | Do not bundle `deco_best.pth` |
 | 404 on `/assets/smpl/*` | Files missing from `public/` |
-| 402 on project create | Team billing suspended |
+| Slow Netlify upload | Deploying `node_modules` / `vendor` — use `.netlifyignore` |
+| 402 on Vercel project create | Team billing suspended |

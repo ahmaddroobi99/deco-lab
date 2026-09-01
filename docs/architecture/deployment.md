@@ -4,32 +4,30 @@
 flowchart TD
   Dev[Developer] --> GH[GitHub main]
   GH --> CI[GitHub Actions: typecheck test lint build]
-  GH --> Vercel[Vercel]
-  Vercel --> Nitro[Nitro vercel output]
-  Nitro --> Edge[Production URL]
+  GH --> Netlify[Netlify production]
+  Netlify --> Nitro[Nitro netlify preset]
+  Nitro --> Edge["https://deco-lab.netlify.app"]
 ```
 
-- **Build:** `npm run build` → Vite client + SSR + Nitro `vercel` preset
-- **Dev:** `npm run dev` binds `0.0.0.0:8080` (App Builder preview contract)
+- **Build:** `npm run build` → Vite client + SSR
+  - Netlify CI (`NETLIFY=true`): Nitro `netlify` preset → `dist` + `.netlify/functions-internal`
+  - Local / GitHub Actions: Nitro `vercel` preset (App Builder / Vercel-ready)
+- **Dev:** `npm run dev` binds `0.0.0.0:8080`
 - **CI:** `.github/workflows/ci.yml`
-- **Hosting:** Vercel project intended as `ahmaddroobi99/deco-lab`
+- **Hosting:** [deco-lab.netlify.app](https://deco-lab.netlify.app) (team `ahmad-droobi1999`)
 
-No extra env vars are required for the default lab.
+No extra secrets. `VITE_AUTH_ENABLED=false`.
 
-## Current production status (2026-09-01)
+## Production (2026-09-01)
 
-`vercel create_git_project` / `deploy_to_vercel` against team
-`team_9XK1FiVNJIf4Xk3YixRN0544` (`ahmads-projects-76bdf265`) fail with
-**HTTP 402** `resource_creation_blocked`:
+| Check | Result |
+| --- | --- |
+| `https://deco-lab.netlify.app/` | HTTP 200, `text/html` |
+| HTTP → HTTPS | 301 |
+| `GET /api/health` | 200, `cuda: false`, `vertexCount: 6890` |
+| `/assets/smpl/smpl_neutral_tpose.f32` | 200, 82680 bytes |
+| Client JS MIME | `application/javascript` |
 
-> Your account has been suspended. To reactivate your subscription, add a valid payment method.
-
-Existing linked project on that team is `time7` (`ahmaddroobi99/time7`) — not reused.
-
-After billing is reactivated:
-
-1. Link `ahmaddroobi99/deco-lab` to a new Vercel project named `deco-lab`
-2. Production branch `main`, build command `npm run build`
-3. Confirm `GET /` and `GET /api/health` return HTTP 200 over HTTPS
+Vercel project creation on `ahmads-projects-76bdf265` still returns HTTP 402 (`resource_creation_blocked`). Not reused `time7`.
 
 See also [../operations/deployment.md](../operations/deployment.md).

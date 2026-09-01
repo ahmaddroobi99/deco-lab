@@ -8,13 +8,12 @@ This is a **contact visualization**, not a posed 3D reconstruction of the person
 
 ## Demo
 
+Live: [https://deco-lab.netlify.app](https://deco-lab.netlify.app)  
 Source: [github.com/ahmaddroobi99/deco-lab](https://github.com/ahmaddroobi99/deco-lab)
 
-Production on Vercel is **not live**. Creating a project on team
-[`ahmads-projects-76bdf265`](https://vercel.com/teams/ahmads-projects-76bdf265/settings/billing)
-returns **HTTP 402** `resource_creation_blocked` (Pro subscription suspended
-pending a payment method). The Nitro `vercel` preset build succeeds locally;
-promote after billing is reactivated.
+Verified on this deploy: `GET /` 200 over HTTPS, `GET /api/health` 200, official SMPL `.f32` / `.u32` payloads. Vercel remains blocked on Pro billing (HTTP 402); Netlify is the production host.
+
+Official DECO-HRNet is **not** loaded here (`cuda: false` in `/api/health`).
 
 ![Lab desktop](docs/images/lab-desktop.png)
 
@@ -57,7 +56,7 @@ Details: [System overview](docs/architecture/system-overview.md) · [Architectur
 | Backend | TanStack Start server routes (health/system only) |
 | Database | None |
 | AI/ML | Client-side DECO-protocol estimator on official SMPL topology |
-| Deployment | Vercel (Nitro `vercel` preset) |
+| Deployment | Netlify (Nitro `netlify` preset); local/CI keep `vercel` preset |
 | Testing | Node.js test runner + TypeScript |
 
 ## Project structure
@@ -109,7 +108,7 @@ npm run build
 
 ## Deployment
 
-Push `main` → GitHub Actions CI → Vercel production. See [docs/operations/deployment.md](docs/operations/deployment.md).
+Push `main` → GitHub Actions CI. Production is [deco-lab.netlify.app](https://deco-lab.netlify.app). See [docs/operations/deployment.md](docs/operations/deployment.md).
 
 ## Performance
 
