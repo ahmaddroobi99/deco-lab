@@ -6,6 +6,7 @@ node_modules/
 .tanstack/
 .vercel/
 dist/
+.netlify/
 coverage/
 
 # env / secrets
