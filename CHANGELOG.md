@@ -10,3 +10,5 @@
 - Unit tests for SMPL topology, contact mapping, colormap, pose cues, API contract, and mesh exports
 - Architecture, operations, and ML-pipeline documentation
 - GitHub Actions CI (typecheck, test, lint, build)
+- Public repository: https://github.com/ahmaddroobi99/deco-lab
+- Vercel production blocked on team billing (HTTP 402) until payment method is added

@@ -8,7 +8,13 @@ This is a **contact visualization**, not a posed 3D reconstruction of the person
 
 ## Demo
 
-Production URL is published on the GitHub repo homepage after Vercel promote.
+Source: [github.com/ahmaddroobi99/deco-lab](https://github.com/ahmaddroobi99/deco-lab)
+
+Production on Vercel is **not live**. Creating a project on team
+[`ahmads-projects-76bdf265`](https://vercel.com/teams/ahmads-projects-76bdf265/settings/billing)
+returns **HTTP 402** `resource_creation_blocked` (Pro subscription suspended
+pending a payment method). The Nitro `vercel` preset build succeeds locally;
+promote after billing is reactivated.
 
 ![Lab desktop](docs/images/lab-desktop.png)
 
