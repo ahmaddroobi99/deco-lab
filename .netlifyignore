@@ -1,0 +1,16 @@
+node_modules
+vendor
+.git
+.grok
+.vercel
+.output
+.nitro
+.tanstack
+dist
+coverage
+artifacts
+attachments
+screenshots
+ml
+AGENTS.md
+AGENTS.project.md
