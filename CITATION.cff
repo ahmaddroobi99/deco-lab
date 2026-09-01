@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: DECO Lab
+message: If you use DECO, please cite the original paper.
+type: software
+references:
+  - type: article
+    title: "DECO: Dense Estimation of 3D Human-Scene Contact In The Wild"
+    authors:
+      - family-names: Tripathi
+        given-names: Shashank
+      - family-names: Chatterjee
+        given-names: Agniv
+      - family-names: Passy
+        given-names: Jean-Claude
+      - family-names: Yi
+        given-names: Hongwei
+      - family-names: Tzionas
+        given-names: Dimitrios
+      - family-names: Black
+        given-names: Michael J.
+    year: 2023
+    journal: "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)"
+    pages: "8001-8013"
+    url: https://arxiv.org/abs/2309.15273

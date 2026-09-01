@@ -1,0 +1,10 @@
+flowchart TD
+  RGB --> Raster256
+  Raster256 --> Cues
+  Cues --> Pose
+  SMPL --> Scores
+  Pose --> Scores
+  Scores --> Smooth
+  Smooth --> Probs6890
+  Probs6890 --> Colors
+  Colors --> WebGL

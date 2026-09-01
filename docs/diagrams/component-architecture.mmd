@@ -1,0 +1,12 @@
+flowchart TB
+  LabShell --> ImageUploader
+  LabShell --> Viewer3D
+  LabShell --> RightPanel
+  LabShell --> Diagnostics
+  ImageUploader --> Store
+  RightPanel --> Store
+  Store --> Pipeline
+  Viewer3D --> Store
+  Viewer3D --> SMPL
+  Pipeline --> Estimator
+  Pipeline --> SMPL

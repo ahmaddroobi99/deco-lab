@@ -1,0 +1,11 @@
+sequenceDiagram
+  actor U as User
+  participant UI as Lab UI
+  participant P as Pipeline
+  participant V as Viewer
+  U->>UI: Drop image / example
+  U->>UI: Run DECO
+  UI->>P: raster 256² + cues + contact
+  P-->>UI: DecoResult 6890 probs
+  UI->>V: vertex colors
+  U->>V: orbit / threshold / export

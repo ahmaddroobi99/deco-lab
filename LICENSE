@@ -1,0 +1,30 @@
+DECO Lab — research / non-commercial use
+
+This repository is a research workstation around the DECO paper
+(Tripathi et al., ICCV 2023). It is **not** an OSI open-source
+redistribution of DECO, SMPL, or MPI checkpoints.
+
+1. Application code in `src/` (UI, Three.js viewer, image-conditioned
+   contact estimator, exports) may be used, copied, and modified for
+   **non-commercial scientific research, education, or artistic
+   projects**, provided this notice and the DECO citation are retained.
+
+2. SMPL geometry and part segmentation under `public/assets/smpl/`
+   originate from the official DECO data release. They remain copyright
+   Max-Planck-Gesellschaft / MPI-IS and are governed by the DECO Data &
+   Software License. See `LICENSES/DECO_LICENSE.md`.
+
+3. Official DECO-HRNet weights (`deco_best.pth`) are **not** included
+   and must not be redistributed. Obtain them from the authors under
+   MPI terms: https://deco.is.tue.mpg.de/
+
+4. Commercial, military, surveillance, and pornographic use of MPI
+   Data & Software is prohibited.
+
+5. Third-party JavaScript packages remain under their own licenses
+   (MIT/Apache as declared in `package.json`).
+
+NO WARRANTY. This software is provided "AS IS".
+
+If these terms conflict with the MPI DECO license for MPI materials,
+the MPI license controls for those materials.

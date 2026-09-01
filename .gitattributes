@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+*.f32 binary
+*.u32 binary
+*.ply binary
+*.woff2 binary

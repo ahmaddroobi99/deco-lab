@@ -1,0 +1,46 @@
+# dependencies & build
+node_modules/
+.output/
+.vinxi/
+.nitro/
+.tanstack/
+.vercel/
+dist/
+coverage/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# logs / OS
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# python / research dumps
+__pycache__/
+*.pyc
+*.pth
+*.tar.gz
+ml/checkpoints/
+ml/data/
+vendor/
+artifacts/
+attachments/
+outputs/
+
+# sandbox / platform local
+.grok/
+AGENTS.md
+AGENTS.project.md
+.project_id
+.node_modules.lock
+
+# local QA captures (canonical shots live in docs/images)
+/screenshots/
+
+# nitro / vite
+*.local

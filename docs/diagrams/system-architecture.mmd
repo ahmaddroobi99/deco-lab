@@ -1,0 +1,8 @@
+flowchart LR
+  User --> LabUI
+  LabUI --> Pipeline
+  LabUI --> HealthAPI
+  Pipeline --> SMPLAssets
+  Pipeline --> Viewer3D
+  HealthAPI --> Nitro
+  SMPLAssets --> CDN[Static files]
