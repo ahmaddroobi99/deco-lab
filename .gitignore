@@ -33,7 +33,8 @@ attachments/
 outputs/
 
 # sandbox / platform local
-.grok/
+.grok/**
+!.grok/app-env.json
 AGENTS.md
 AGENTS.project.md
 .project_id
